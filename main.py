@@ -16,6 +16,6 @@ if len(pages) > 1:
 
     print("-----[두번째 페이지 실제 텍스트 객체 전체 출력]-----")
     print(pages[1].page_content)
-
+    print("그냥 페이지 객체를 출력하면 페이지 객체의 메타데이터와 텍스트가 함께 출력됩니다.")
 else:
     print(f"PDF 파일에 페이지가 하나도 없습니다: {file_path}")
