@@ -24,12 +24,9 @@ text_splitter = RecursiveCharacterTextSplitter(
 )
 texts = text_splitter.split_documents(pages)
 
-
 embeddings_model = OpenAIEmbeddings(model="text-embedding-3-small")
 
-
 db = Chroma.from_documents(texts, embeddings_model)
-
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
