@@ -121,12 +121,12 @@ if uploaded_file is not None:
 
                 document_chain = ( create_stuff_documents_chain(   llm,    prompt    )   )
 
-                response = qa_chain.create_retrieval_chain(
+                qa_chain = create_retrieval_chain(
                     retriever,
                     document_chain
                 )
 
-                qa_chain.invoke(    {    "input": question    }      )
+                response = qa_chain.invoke(    {    "input": question    }      )
 
                 # 답변 출력
                 st.write(
