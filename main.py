@@ -121,7 +121,7 @@ if uploaded_file is not None:
 
                 document_chain = ( create_stuff_documents_chain(   llm,    prompt    )   )
 
-                response = qa_chain.create_retrieval_chain((
+                response = qa_chain.create_retrieval_chain(
                     retriever,
                     document_chain
                 )
