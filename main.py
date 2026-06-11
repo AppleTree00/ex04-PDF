@@ -138,8 +138,3 @@ if uploaded_file is not None:
                             yield answer_chunk
 
                 st.write_stream(stream_answer)
-
-                # 답변 출력
-                st.write(
-                    response["answer"]
-                )
