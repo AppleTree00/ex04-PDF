@@ -127,3 +127,8 @@ if uploaded_file is not None:
                 )
 
                 qa_chain.invoke(    {    "input": question    }      )
+
+                # 답변 출력
+                st.write(
+                    response["answer"]
+                )
