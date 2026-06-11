@@ -122,11 +122,22 @@ if uploaded_file is not None:
                 document_chain = ( create_stuff_documents_chain(   llm,    prompt    )   )
 
                 qa_chain = create_retrieval_chain(
-                    retriever,
-                    document_chain
+                    retriever, document_chain
                 )
 
-                response = qa_chain.invoke(    {    "input": question    }      )
+                # qa_chain.invoke(    {    "input": question    }   )
+                
+                # 답변 출력
+                # st.write(
+                #     response["answer"]
+                # )
+                
+                def stream_answer():
+                    for chunk in qa_chain.stream({"input": question}):
+                        if answer_chunk := chunk.get("answer"):
+                            yield answer_chunk
+
+                st.write_stream(stream_answer)
 
                 # 답변 출력
                 st.write(
